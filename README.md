@@ -2,6 +2,7 @@
 Random carcassonne map generator.
 
 These generators already exist, but I want to give my own spin on it.
+To be precise, the features listed under Goals are unique AFAIK.
 
 Scanned images are from [Paul at sydby.com](http://sydby.com/carcassonne/10k/index.html)
 
