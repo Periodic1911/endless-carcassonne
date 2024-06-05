@@ -1,9 +1,25 @@
+use rand::thread_rng;
+
 mod direction;
 mod feature;
+mod fixed_map;
+mod map;
 mod rotated_tile;
 mod rotation;
 mod tile;
+mod wave_function;
+
+// todo: args
+pub struct Args {}
 
 fn main() {
-    // todo: generate random carcassonne map
+    let args = Args {};
+
+    // todo: seedable rng
+    let mut rng = thread_rng();
+
+    let map = wave_function::generate(args, &mut rng);
+
+    // todo: output an image
+    println!("{map:?}");
 }

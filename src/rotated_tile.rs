@@ -3,13 +3,17 @@ use crate::feature::Feature;
 use crate::rotation::Rotation;
 use crate::tile::Tile;
 
-#[derive(Debug, Copy, Clone)]
-struct RotatedTile {
+#[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash)]
+pub struct RotatedTile {
     tile: Tile,
     rotation: Rotation,
 }
 
 impl RotatedTile {
+    pub fn new(tile: Tile, rotation: Rotation) -> Self {
+        Self { tile, rotation }
+    }
+
     pub fn feature(&self, side: Direction) -> Feature {
         use Feature::City as C;
         use Feature::Forest as F;
@@ -43,6 +47,10 @@ impl RotatedTile {
     /// Predicate returning whether `other` can connect to the given `side` of `self`.
     pub fn connects(&self, other: &Self, side: Direction) -> bool {
         self.feature(side) == other.feature(side.rev())
+    }
+
+    pub fn tile(&self) -> &Tile {
+        &self.tile
     }
 }
 

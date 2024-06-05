@@ -1,5 +1,7 @@
+use enum_iterator::Sequence;
+
 /// Rotations clockwise starting from the positive y-axis.
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash, Sequence)]
 pub enum Rotation {
     D0,
     D90,

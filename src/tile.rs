@@ -3,7 +3,7 @@ use enum_iterator::Sequence;
 /// Enumerated Tiles for BaseGame_C1 variant of Carcassonne.
 /// Ordered, Rotated, Named and Weighted as https://wikicarpedia.com/car/Carcassonne_Tile_List/en.
 #[allow(clippy::upper_case_acronyms)]
-#[derive(Debug, Copy, Clone, Sequence)]
+#[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash, Sequence)]
 pub enum Tile {
     /// city-city-city-city-shield
     CCCCS,

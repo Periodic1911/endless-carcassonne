@@ -1,5 +1,8 @@
+use crate::map::Point2D;
+use enum_iterator::Sequence;
+
 /// Cardinal directions.
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Sequence)]
 pub enum Direction {
     North,
     East,
@@ -25,6 +28,15 @@ impl Direction {
             Direction::East => Direction::West,
             Direction::South => Direction::North,
             Direction::West => Direction::East,
+        }
+    }
+
+    pub fn step(&self) -> Point2D {
+        match self {
+            Direction::North => (0, 1),
+            Direction::East => (1, 0),
+            Direction::South => (0, -1),
+            Direction::West => (-1, 0),
         }
     }
 }
