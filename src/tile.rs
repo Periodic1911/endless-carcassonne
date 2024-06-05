@@ -48,7 +48,6 @@ pub enum Tile {
     /// forest-forest-road-road
     FFRR,
     /// forest-road-forest-road
-    // todo: the image for this tile is not from BaseGame_C1 according to https://wikicarpedia.com/car/Carcassonne_Tile_List/en
     FRFR,
     /// forest-road-road-road
     FRRR,
