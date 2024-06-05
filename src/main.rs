@@ -1,3 +1,4 @@
+use crate::visualize::visualize;
 use rand::thread_rng;
 
 mod direction;
@@ -7,6 +8,7 @@ mod map;
 mod rotated_tile;
 mod rotation;
 mod tile;
+mod visualize;
 mod wave_function;
 
 // todo: args
@@ -18,8 +20,7 @@ fn main() {
     // todo: seedable rng
     let mut rng = thread_rng();
 
-    let map = wave_function::generate(args, &mut rng);
+    let map = wave_function::generate(args, &mut rng).unwrap();
 
-    // todo: output an image
-    println!("{map:?}");
+    visualize(map, "output.html")
 }

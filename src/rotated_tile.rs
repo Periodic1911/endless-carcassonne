@@ -2,8 +2,10 @@ use crate::direction::Direction;
 use crate::feature::Feature;
 use crate::rotation::Rotation;
 use crate::tile::Tile;
+use derive_more::Display;
 
-#[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash)]
+#[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash, Display)]
+#[display(fmt = "{tile} {rotation}")]
 pub struct RotatedTile {
     tile: Tile,
     rotation: Rotation,

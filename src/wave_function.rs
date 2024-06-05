@@ -30,11 +30,10 @@ pub fn generate<R: RngCore>(args: Args, rng: &mut R) -> Option<TileMap> {
     let mut queue = HashSet::from([start]);
 
     // 7. Repeat while the map is not filled.
-    while let Some(&p @ (x, y)) = queue.iter().min_by_key(|&&p| entropy(&candidate_map[p])) {
+    'outer: while let Some(&p @ (x, y)) = queue.iter().min_by_key(|&&p| entropy(&candidate_map[p]))
+    {
         // 5. Collapse cell with the least entropy.
-        let sampled_tile = sample(&mut candidate_map[p], rng);
-        tile_map[p] = Some(sampled_tile);
-        queue.remove(&p);
+        let sampled_tile = sample(&candidate_map[p], rng);
 
         // 6. Propagate constraints.
         for direction in enum_iterator::all::<Direction>() {
@@ -45,7 +44,12 @@ pub fn generate<R: RngCore>(args: Args, rng: &mut R) -> Option<TileMap> {
                 continue;
             }
 
-            if tile_map[q].is_some() {
+            // Verify consistency
+            if let Some(other) = tile_map[q] {
+                if !sampled_tile.connects(&other, direction) {
+                    candidate_map[p].remove(&sampled_tile);
+                    continue 'outer;
+                }
                 continue;
             }
 
@@ -57,6 +61,9 @@ pub fn generate<R: RngCore>(args: Args, rng: &mut R) -> Option<TileMap> {
                 .filter(|a| sampled_tile.connects(a, direction))
                 .collect();
         }
+
+        tile_map[p] = Some(sampled_tile);
+        queue.remove(&p);
     }
 
     Some(tile_map)
@@ -77,5 +84,5 @@ fn sample<R: RngCore>(candidates: &HashSet<RotatedTile>, rng: &mut R) -> Rotated
         .map(|candidate| candidate.tile().weight())
         .collect::<Vec<_>>();
     let dist = WeightedIndex::new(weights).unwrap();
-    candidates[rng.sample(dist)].clone()
+    *candidates[rng.sample(dist)]
 }

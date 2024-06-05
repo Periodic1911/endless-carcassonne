@@ -31,12 +31,20 @@ impl<T: Default + Clone> FixedMap2D<T> {
             }
         }
     }
+
+    pub fn width(&self) -> usize {
+        self.width
+    }
+
+    pub fn height(&self) -> usize {
+        self.height
+    }
 }
 
 impl<T: Default + Clone> Default for FixedMap2D<T> {
     fn default() -> Self {
-        let width = 10;
-        let height = 10;
+        let width = 50;
+        let height = 50;
         let x_min = 0;
         let y_min = 0;
 
