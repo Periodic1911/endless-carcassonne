@@ -77,7 +77,7 @@ impl Tile {
             Tile::CFCF2 => 3,
             Tile::CFFF => 5,
             Tile::CFRR => 3,
-            Tile::CRFR => 3,
+            Tile::CRFR => 4,
             Tile::CRRF => 3,
             Tile::CRRR => 3,
             Tile::FFFF => 4,
@@ -92,9 +92,10 @@ impl Tile {
 
 #[cfg(test)]
 mod tests {
+    use crate::tile::Tile;
+
     #[test]
     fn base_total_tiles() {
-        todo!("count number of tiles")
-        // assert_eq!(Tile::total_weight(), 71);
+        assert_eq!(Tile::total_weight(), 72);
     }
 }
