@@ -1,0 +1,132 @@
+body, html {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background: black;
+}
+
+main {
+    display: grid;
+    height: fit-content;
+}
+
+.grid-square {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.D0 {
+    transform: rotate(0deg);
+}
+
+.D90 {
+    transform: rotate(90deg);
+}
+
+.D180 {
+    transform: rotate(180deg);
+}
+
+.D270 {
+    transform: rotate(270deg);
+}
+
+.CCCCS {
+    background: url(./resources/base/CCCCS.jpg);
+}
+
+.CCCF {
+    background: url(./resources/base/CCCF.jpg);
+}
+
+.CCCFS {
+    background: url(./resources/base/CCCFS.jpg);
+}
+
+.CCCR {
+    background: url(./resources/base/CCCR.jpg);
+}
+
+.CCCRS {
+    background: url(./resources/base/CCCRS.jpg);
+}
+
+.CCFF {
+    background: url(./resources/base/CCFF.jpg);
+}
+
+.CCFFS {
+    background: url(./resources/base/CCFFS.jpg);
+}
+
+.CCFF2 {
+    background: url(./resources/base/CCFF2.jpg);
+}
+
+.CCRR {
+    background: url(./resources/base/CCRR.jpg);
+}
+
+.CCRRS {
+    background: url(./resources/base/CCRRS.jpg);
+}
+
+.CFCF {
+    background: url(./resources/base/CFCF.jpg);
+}
+
+.CFCFS {
+    background: url(./resources/base/CFCFS.jpg);
+}
+
+.CFCF2 {
+    background: url(./resources/base/CFCF2.jpg);
+}
+
+.CFFF {
+    background: url(./resources/base/CFFF.jpg);
+}
+
+.CFRR {
+    background: url(./resources/base/CFRR.jpg);
+}
+
+.CRFR {
+    background: url(./resources/base/CRFR.jpg);
+}
+
+.CRRF {
+    background: url(./resources/base/CRRF.jpg);
+}
+
+.CRRR {
+    background: url(./resources/base/CRRR.jpg);
+}
+
+.FFFF {
+    background: url(./resources/base/FFFF.jpg);
+}
+
+.FFFR {
+    background: url(./resources/base/FFFR.jpg);
+}
+
+.FFRR {
+    background: url(./resources/base/FFRR.jpg);
+}
+
+.FRFR {
+    background: url(./resources/base/FRFR.jpg);
+}
+
+.FRRR {
+    background: url(./resources/base/FRRR.jpg);
+}
+
+.RRRR {
+    background: url(./resources/base/RRRR.jpg);
+}

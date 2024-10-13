@@ -1,0 +1,10 @@
+[package]
+name = "endless-carcassonne"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+itertools = "0.13.0"
+enum-iterator = "2.1.0"
+rand = "0.8.5"
+derive_more = "0.99.17"
